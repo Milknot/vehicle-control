@@ -1,0 +1,28 @@
+<div class="container">
+    <mat-expansion-panel [expanded]="true" >
+        <mat-expansion-panel-header>
+            <mat-panel-title class="text-xl">
+                Rendimiento
+            </mat-panel-title>
+            <mat-panel-description>
+                Pendiente
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="graph">
+            <div>Gráfico</div>
+        </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel [expanded]="true" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="text-xl">
+                Costos
+            </mat-panel-title>
+            <mat-panel-description>
+                Pendiente
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="graph">
+            <div>Gráfico</div>
+        </div>
+    </mat-expansion-panel>
+</div>
