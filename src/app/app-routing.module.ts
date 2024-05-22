@@ -3,35 +3,39 @@ import { PreloadAllModules, provideRouter, RouterModule, Routes, withPreloading 
 
 import { authGuard } from './core/guardians/auth.guard';
 
-import PageNotFoundComponent from './shared/page-not-found.component';
+import PageNotFoundComponent from './shared/page-not-found/page-not-found.component';
 import AdministratorComponent from './shared/administrator/administrador.component';
 import LoginComponent from './shared/login/login.component';
 import { OnMaintenanceComponent } from './shared/on-maintenance/on-maintenance.component';
+import VehicleRoutingModule from './shared/administrator/vehicle/vehicle-routing.module';
+import HistoricsRoutingModule from './shared/administrator/historical/historical-routing.module';
+import ProfileComponent from './shared/administrator/profile/profile.component';
 
 const routes: Routes = [
     {
         path: 'vehicle',
-        // loadChildren: () =>
-        //     import('./shared/administrator/vehicle/vehicle-routing.module'),
         component: AdministratorComponent,
         canActivateChild: [authGuard] ,
         canActivate: [authGuard],
+        loadChildren: () => VehicleRoutingModule
+    },
+    {
+        path: 'historical',
+        component: AdministratorComponent,
+        canActivateChild: [authGuard] ,
+        canActivate: [authGuard],
+        loadChildren: () => HistoricsRoutingModule
+    },
+    {
+        path: 'user',
+        component: AdministratorComponent,
         children: [
             {
-                path: '',
-                redirectTo: 'dashboard',
-                pathMatch: 'full',
-            },
-            {
-                path: 'gasoline-recharge',
-                loadComponent: () => import('./shared/administrator/vehicle/gasoline-recharge/gasoline-recharge.component'),
-            },
-            {
-                path: 'dashboard',
-                loadComponent: () => import('./shared/administrator/vehicle/dashboard/dashboard.component'),
-            },
-        ]
-
+                path: "profile",
+                component: ProfileComponent
+            }
+        ],
+        canActivate: [authGuard]
     },
     {
         path: 'on-maintenance',

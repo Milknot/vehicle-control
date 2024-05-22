@@ -1,4 +1,8 @@
-<div class="container">
+<div class="container w-full max-w-none p-4 flex flex-col gap-4">
+    <div class="flex justify-end">
+        <button mat-raised-button color="primary" class="rounded-xl" (click)="showRecord()">Nuevo registro</button>
+            <!-- <a [routerLink]="'/vehicle/gasoline-recharge'">Nuevo registro</a></button> -->
+    </div>
     <mat-expansion-panel [expanded]="true" >
         <mat-expansion-panel-header>
             <mat-panel-title class="text-xl">

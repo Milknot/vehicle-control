@@ -1,5 +1,9 @@
 .graph {
-    text-align: center;
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
     padding: 50px 50px;
     width: 100%;
     background-color: #666;

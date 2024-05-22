@@ -1,0 +1,18 @@
+<app-header-nav>
+    <button button
+        mat-button
+        (click)="sidenav.toggle()"
+        class="sm:hidden md:flex"
+    >
+        <mat-icon class="text-white w-auto">menu</mat-icon>
+    </button>
+</app-header-nav>
+<mat-sidenav-container class="container min-h-full max-w-none">
+    <mat-sidenav #sidenav mode="side" [(ngModel)]="opened" class="bg-background p-4 text-white ">
+        Sidenav content
+    </mat-sidenav>
+    <mat-sidenav-content class="">
+        <router-outlet/>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<app-mobile-nav />

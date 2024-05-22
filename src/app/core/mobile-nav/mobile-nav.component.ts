@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
-import { Router } from '@angular/router';
+import { Router, RouterLinkWithHref } from '@angular/router';
 
 @Component({
   selector: 'app-mobile-nav',
@@ -14,7 +14,8 @@ import { Router } from '@angular/router';
   imports: [
     CommonModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    RouterLinkWithHref
   ],
 })
 export default class MobileNavComponent {
